@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, type Ref } from 'react'
 import { Search } from 'lucide-react'
 
 export function AddressInput({
@@ -19,7 +19,7 @@ export function AddressInput({
       />
       <button
         onClick={() => onSearch(value)}
-        className="bg-blue-600 text-white px-3 py-2 rounded-xl hover:bg-blue-700 flex items-center gap-1"
+        className="bg-amber-700 text-white px-3 py-2 rounded-xl hover:bg-amber-800 flex items-center gap-1 cursor-pointer border border-amber-950"
       >
         <Search size={16} /> Fetch
       </button>
