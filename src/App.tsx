@@ -12,14 +12,17 @@ const App = () => {
       <h1 className="text-2xl font-bold mb-4">
         Ethereum Transaction Visualizer
       </h1>
-      <h3>you can use this address for demo purposes:</h3>
+      <h3>You can use this address for demo purposes:</h3>
       <p className="mb-4 text-sm text-gray-600">{ethereumDemoAddress}</p>
       <AddressInput onSearch={getTransactions} />
 
       {loading && <p className="mt-4 text-gray-500">Loading...</p>}
       {error && <p className="mt-4 text-red-500">{error}</p>}
       {!loading && transactions.length > 0 && (
-        <TransactionList transactions={transactions} />
+        <TransactionList
+          transactions={transactions}
+          userAddress={ethereumDemoAddress}
+        />
       )}
     </main>
   )

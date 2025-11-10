@@ -1,4 +1,4 @@
-import { useState, type Ref } from 'react'
+import { useState } from 'react'
 import { Search } from 'lucide-react'
 
 export function AddressInput({

@@ -3,15 +3,17 @@ import { type TransactionItem } from '../types'
 
 export function TransactionItem({
   transaction,
+  userAddress,
 }: {
   transaction: TransactionItem
+  userAddress: string
 }) {
   const date = format(
     new Date(parseInt(transaction.timeStamp) * 1000),
     'MMM d, yyyy HH:mm'
   )
   const isOutgoing =
-    transaction.from.toLowerCase() !== transaction.to.toLowerCase()
+    transaction.from.toLowerCase() === userAddress.toLowerCase()
   const valueEth = (parseFloat(transaction.value) / 1e18).toFixed(4)
 
   return (
