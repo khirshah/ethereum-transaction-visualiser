@@ -3,7 +3,14 @@ import { TransactionList } from './TransactionList'
 import { useTransactions } from './../hooks/useTransactions'
 
 const PageContent = () => {
-  const { loading, error, transactions, getTransactions } = useTransactions()
+  const {
+    loading,
+    error,
+    transactions,
+    getTransactions,
+    inputValue,
+    setInputValue,
+  } = useTransactions()
 
   const ethereumDemoAddress = '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045'
 
@@ -14,7 +21,11 @@ const PageContent = () => {
       </h1>
       <h3>You can use this address for demo purposes:</h3>
       <p className="mb-4 text-sm text-gray-600">{ethereumDemoAddress}</p>
-      <AddressInput onSearch={getTransactions} />
+      <AddressInput
+        onSearch={getTransactions}
+        setInputValue={setInputValue}
+        inputValue={inputValue}
+      />
 
       {loading && <p className="mt-4 text-gray-500">Loading...</p>}
       {error && <p className="mt-4 text-red-500">{error}</p>}

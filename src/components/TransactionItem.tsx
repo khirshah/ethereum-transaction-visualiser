@@ -14,7 +14,7 @@ export function TransactionItem({
   )
   const isOutgoing =
     transaction.from.toLowerCase() === userAddress.toLowerCase()
-  const valueEth = (parseFloat(transaction.value) / 1e18).toFixed(10)
+  const valueEth = (parseFloat(transaction.value) / 1e18).toFixed(5)
 
   return (
     <div className="flex justify-between border-b py-2 text-sm">
