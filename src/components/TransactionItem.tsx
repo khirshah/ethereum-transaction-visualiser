@@ -18,7 +18,7 @@ export const TransactionItem = ({
   return (
     <div
       className={`flex max-md:flex-col-reverse max-md:gap-4 max-md:p-2 justify-between items-center
-        max-md:border border-gray-300 max-md:rounded-md md:border-b md:py-2 text-sm`}
+        max-md:border border-gray-300 max-md:rounded-md max-md:shadow-md md:border-b md:py-2 text-sm`}
     >
       <div className="flex flex-col md:min-w-[360px]">
         <TransactionParticipant label="From:" id={transaction.from} />
