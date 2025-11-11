@@ -9,12 +9,12 @@ export function TransactionItem({
   userAddress: string
 }) {
   const date = format(
-    new Date(parseInt(transaction.timeStamp) * 1000),
+    parseInt(transaction.timeStamp) * 1000,
     'MMM d, yyyy HH:mm'
   )
   const isOutgoing =
     transaction.from.toLowerCase() === userAddress.toLowerCase()
-  const valueEth = (parseFloat(transaction.value) / 1e18).toFixed(4)
+  const valueEth = (parseFloat(transaction.value) / 1e18).toFixed(5)
 
   return (
     <div className="flex justify-between border-b py-2 text-sm">

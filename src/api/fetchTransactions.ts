@@ -12,12 +12,14 @@ export const fetchTransactions = async (address: string) => {
       startblock: 0,
       endblock: 99999999,
       sort: 'desc',
-      apikey: import.meta.env.VITE_ETHERSCAN_API_KEY, // Uncommented to use the variable
+      apikey: import.meta.env.VITE_ETHERSCAN_API_KEY,
+      page: 1,
+      offset: 20,
     },
   })
 
   if (res.data && res.data.status === '1' && Array.isArray(res.data.result)) {
-    return res.data.result.slice(0, 10)
+    return res.data.result
   } else {
     const errorMsg =
       (res.data && res.data.message) || 'Unexpected API response structure'
