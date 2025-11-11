@@ -1,15 +1,15 @@
 import { TransactionItem } from './TransactionItem'
-import { type TransactionItem as TransactionItemType } from '../types'
+import { type Transaction } from '../types'
 
-export function TransactionList({
+export const TransactionList = ({
   transactions,
   userAddress,
 }: {
-  transactions: TransactionItemType[]
+  transactions: Transaction[]
   userAddress: string
-}) {
+}) => {
   return (
-    <div className="mt-4 space-y-2">
+    <div className="flex flex-col max-md:gap-4 mt-6">
       {transactions.map((transaction) => (
         <TransactionItem
           key={transaction.hash}
