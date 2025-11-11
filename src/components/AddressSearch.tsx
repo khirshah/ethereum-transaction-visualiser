@@ -11,7 +11,7 @@ export function AddressSearch({
   setInputValue: Dispatch<SetStateAction<string>>
 }) {
   return (
-    <div className="flex gap-2 min-w-[450px] max-w-[600px] items-center">
+    <div className="flex max-md:flex-col gap-2 md:min-w-[450px] max-w-[600px]">
       <input
         type="text"
         placeholder="Enter Ethereum address"
@@ -21,7 +21,7 @@ export function AddressSearch({
       />
       <button
         onClick={() => onSearch(inputValue)}
-        className="bg-cyan-700 text-white px-5 py-2 rounded-md hover:bg-cyan-800 flex items-center gap-1 cursor-pointer"
+        className="bg-cyan-700 text-white px-5 py-2 rounded-md hover:bg-cyan-800 flex items-center justify-center gap-1 cursor-pointer"
       >
         <Search size={16} />
         <div>Search</div>

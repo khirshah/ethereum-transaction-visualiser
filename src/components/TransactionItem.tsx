@@ -1,13 +1,14 @@
 import { format } from 'date-fns'
-import { type TransactionItem } from '../types'
+import { type Transaction } from '../types'
+import { TransactionParticipant } from './TransactionParticipant.tsx'
 
-export function TransactionItem({
+export const TransactionItem = ({
   transaction,
   userAddress,
 }: {
-  transaction: TransactionItem
+  transaction: Transaction
   userAddress: string
-}) {
+}) => {
   const time = format(parseInt(transaction.timeStamp) * 1000, 'HH:mm')
   const date = format(parseInt(transaction.timeStamp) * 1000, 'dd/MM/yyyy')
   const isOutgoing =
@@ -15,24 +16,21 @@ export function TransactionItem({
   const valueEth = (parseFloat(transaction.value) / 1e18).toFixed(5)
 
   return (
-    <div className="flex justify-between items-center border-b py-2 text-sm">
-      <div className="flex flex-col min-w-[360px]">
-        <div className="flex justify-between">
-          <div className="font-semibold">From:</div>
-          <div className="flex justify-self-end"> {transaction.from}</div>
-        </div>
-        <div className="flex justify-between">
-          <div className="font-semibold">To:</div>
-          <div className="flex justify-self-end ">{transaction.to}</div>
-        </div>
+    <div
+      className={`flex max-md:flex-col-reverse max-md:gap-4 max-md:p-2 justify-between items-center
+        max-md:border border-gray-300 max-md:rounded-md md:border-b md:py-2 text-sm`}
+    >
+      <div className="flex flex-col md:min-w-[360px]">
+        <TransactionParticipant label="From:" id={transaction.from} />
+        <TransactionParticipant label="To:" id={transaction.to} />
       </div>
       <div
-        className={`font-medium ${isOutgoing ? 'text-red-600' : 'text-green-600'}`}
+        className={`max-md:text-2xl font-medium ${isOutgoing ? 'text-red-600' : 'text-green-600'}`}
       >
         {isOutgoing ? '-' : '+'} {valueEth} ETH
       </div>
-      <div className="flex flex-col items-end">
-        <div className="text-lg font-semibold text-gray-700">{time}</div>
+      <div className="flex self-end max-md:gap-3 md:flex-col md:items-end">
+        <div className="md:text-lg font-semibold text-gray-700">{time}</div>
         <div className="text-gray-500">{date}</div>
       </div>
     </div>
