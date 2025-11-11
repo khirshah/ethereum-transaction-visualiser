@@ -15,7 +15,7 @@ const PageContent = () => {
   const ethereumDemoAddress = '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045'
 
   return (
-    <div>
+    <div className="w-[80%] p-4">
       <h1 className="text-2xl font-bold mb-4">
         Ethereum Transaction Visualiser
       </h1>
