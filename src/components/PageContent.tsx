@@ -30,10 +30,7 @@ const PageContent = () => {
       {loading && <p className="mt-4 text-gray-500">Loading...</p>}
       {error && <p className="mt-4 text-red-500">{error}</p>}
       {!loading && transactions.length > 0 && (
-        <TransactionList
-          transactions={transactions}
-          userAddress={ethereumDemoAddress}
-        />
+        <TransactionList transactions={transactions} userAddress={inputValue} />
       )}
     </div>
   )
