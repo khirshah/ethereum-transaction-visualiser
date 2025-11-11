@@ -1,11 +1,11 @@
 import { type Dispatch, type SetStateAction, useState } from 'react'
 import { fetchTransactions } from '../api/fetchTransactions'
-import type { TransactionItem } from '../types.ts'
+import type { Transaction } from '../types.ts'
 
 type UseTransactionsReturnValue = {
   loading: boolean
   error: string
-  transactions: TransactionItem[]
+  transactions: Transaction[]
   getTransactions: (address: string) => Promise<void>
   inputValue: string
   setInputValue: Dispatch<SetStateAction<string>>
@@ -13,7 +13,7 @@ type UseTransactionsReturnValue = {
 
 export const useTransactions = (): UseTransactionsReturnValue => {
   const [loading, setLoading] = useState(false)
-  const [transactions, setTransactions] = useState<TransactionItem[]>([])
+  const [transactions, setTransactions] = useState<Transaction[]>([])
   const [error, setError] = useState('')
   const [inputValue, setInputValue] = useState('')
 
