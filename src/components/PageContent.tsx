@@ -1,4 +1,4 @@
-import { AddressInput } from './AddressInput'
+import { AddressSearch } from './AddressSearch.tsx'
 import { TransactionList } from './TransactionList'
 import { useTransactions } from './../hooks/useTransactions'
 
@@ -15,13 +15,13 @@ const PageContent = () => {
   const ethereumDemoAddress = '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045'
 
   return (
-    <div className="w-[80%] p-4">
+    <div className="w-[80%] max-w-[760px] p-4">
       <h1 className="text-2xl font-bold mb-4">
         Ethereum Transaction Visualiser
       </h1>
       <h3>You can use this address for demo purposes:</h3>
       <p className="mb-4 text-sm text-gray-600">{ethereumDemoAddress}</p>
-      <AddressInput
+      <AddressSearch
         onSearch={getTransactions}
         setInputValue={setInputValue}
         inputValue={inputValue}

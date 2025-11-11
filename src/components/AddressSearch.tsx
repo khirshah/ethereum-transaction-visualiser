@@ -1,7 +1,7 @@
 import { type Dispatch, type SetStateAction } from 'react'
 import { Search } from 'lucide-react'
 
-export function AddressInput({
+export function AddressSearch({
   onSearch,
   setInputValue,
   inputValue,
@@ -11,19 +11,20 @@ export function AddressInput({
   setInputValue: Dispatch<SetStateAction<string>>
 }) {
   return (
-    <div className="flex gap-2 items-center">
+    <div className="flex gap-2 min-w-[450px] max-w-[600px] items-center">
       <input
         type="text"
         placeholder="Enter Ethereum address"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        className="w-full p-2 border rounded-xl text-sm"
+        className="w-full p-2 border rounded-sm text-sm"
       />
       <button
         onClick={() => onSearch(inputValue)}
-        className="bg-amber-700 text-white px-3 py-2 rounded-xl hover:bg-amber-800 flex items-center gap-1 cursor-pointer border border-amber-950"
+        className="bg-cyan-700 text-white px-5 py-2 rounded-md hover:bg-cyan-800 flex items-center gap-1 cursor-pointer"
       >
-        <Search size={16} /> Fetch
+        <Search size={16} />
+        <div>Search</div>
       </button>
     </div>
   )
